@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BP 344: Accessibility Law</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: #f8fafc;
+        }
+        
+        .header {
+            background-color: #00c6d4;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar {
+            width: 12.5%;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .list-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 0;
+        }
+        
+        .list-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .list-container::-webkit-scrollbar-thumb {
+            background: #00c6d4;
+            border-radius: 20px;
+        }
+        
+        .section-header {
+            padding: 14px 24px 6px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            text-transform: uppercase;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 11px 24px;
+            margin: 2px 8px;
+            border-radius: 8px;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #0f172a;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .list-item:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .list-item.active {
+            background-color: #e0f2f4 !important;
+            color: #0f766e;
+            font-weight: 600;
+        }
+        
+        .content-area {
+            flex: 1;
+            background: #f8fafc;
+            position: relative;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .empty-state {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (100% same as video) -->
+    <div class="header">
+        <div class="flex items-center gap-3">
+            <div onclick="window.location.reload()" class="cursor-pointer p-2 hover:bg-white/20 rounded-full transition">
+                ←
+            </div>
+            <div class="text-xl font-semibold tracking-tight">BP 344: Accessibility Law</div>
+        </div>
+    </div>
+
+    <div class="flex h-[calc(100vh-56px)]">
+        
+        <!-- SIDEBAR (exactly 1/8 width) -->
+        <div class="sidebar">
+            <div class="list-container" id="sidebar-list">
+                
+                <div class="section-header">GENERAL PROVISIONS</div>
+                <div class="list-item" data-file="Wheelchair - VIZCODE.html">Wheelchair</div>
+                <div class="list-item" data-file="Wheelchair Seating Space - VIZCODE.html">Wheelchair Seating Space</div>
+                <div class="list-item" data-file="Ramps - VIZCODE.html">Ramps</div>
+                <div class="list-item" data-file="Ground Surfaces - VIZCODE.html">Ground Surfaces</div>
+                <div class="list-item" data-file="Handrails and Grab Bars - VIZCODE.html">Handrails and Grab Bars</div>
+                <div class="list-item" data-file="Parking - VIZCODE.html">Parking</div>
+                <div class="list-item" data-file="Signage - VIZCODE.html">Signage</div>
+                <div class="list-item" data-file="Tactile Floor Surfaces - VIZCODE.html">Tactile Floor Surfaces</div>
+                <div class="list-item" data-file="Stairs - VIZCODE.html">Stairs</div>
+                <div class="list-item" data-file="Lighting and Illumination - VIZCODE.html">Lighting and Illumination</div>
+                <div class="list-item" data-file="Protection on Low Headroom Clearance - VIZCODE.html">Protection on Low Headroom Clearance</div>
+                <div class="list-item" data-file="Protrusions - VIZCODE.html">Protrusions</div>
+
+                <div class="section-header">OUTSIDE AND AROUND BUILDINGS</div>
+                <div class="list-item" data-file="Dropped Sidewalks - VIZCODE.html">Dropped Sidewalks</div>
+                <div class="list-item" data-file="Curb Ramps - VIZCODE.html">Curb Ramps</div>
+                <div class="list-item" data-file="Pathways, Sidewalks, Walkways - VIZCODE.html">Pathways, Sidewalks, Walkways</div>
+                <div class="list-item" data-file="Open Spaces - VIZCODE.html">Open Spaces</div>
+                <div class="list-item" data-file="Crossings - VIZCODE.html">Crossings</div>
+                <div class="list-item" data-file="Bollards - VIZCODE.html">Bollards</div>
+
+                <div class="section-header">INSIDE BUILDINGS</div>
+                <div class="list-item" data-file="Accessible Entrance - VIZCODE.html">Accessible Entrance</div>
+                <div class="list-item" data-file="Doors - VIZCODE.html">Doors</div>
+                <div class="list-item" data-file="Threshold - VIZCODE.html">Threshold</div>
+                <div class="list-item" data-file="Switches - VIZCODE.html">Switches</div>
+                <div class="list-item" data-file="Corridors - VIZCODE.html">Corridors</div>
+                <div class="list-item" data-file="Toilets and Baths - VIZCODE.html">Toilets and Baths</div>
+                <div class="list-item" data-file="Toilets and Baths_ Door - VIZCODE.html">Toilets and Baths: Door</div>
+                <div class="list-item" data-file="Toilets and Baths_ Water Closet - VIZCODE.html">Toilets and Baths: Water Closet</div>
+                <div class="list-item" data-file="Toilets and Baths_ Grab Bars for Water Closets - VIZCODE.html">Toilets and Baths: Grab Bars for Water Closets</div>
+                <div class="list-item" data-file="Toilets and Baths_ Accessories and Controls - VIZCODE.html">Toilets and Baths: Accessories and Controls</div>
+                <div class="list-item" data-file="Toilets and Baths_ Lavatory - VIZCODE.html">Toilets and Baths: Lavatory</div>
+                <div class="list-item" data-file="Toilets and Baths_ Urinal - VIZCODE.html">Toilets and Baths: Urinal</div>
+                <div class="list-item" data-file="Toilets and Baths_ Shower and Bathtubs - VIZCODE.html">Toilets and Baths: Shower and Bathtubs</div>
+                <div class="list-item" data-file="Changing Places - VIZCODE.html">Changing Places</div>
+                <div class="list-item" data-file="Elevators - VIZCODE.html">Elevators</div>
+                <div class="list-item" data-file="Platform Lifts - VIZCODE.html">Platform Lifts</div>
+                <div class="list-item" data-file="Wheelchair Lifts - VIZCODE.html">Wheelchair Lifts</div>
+                <div class="list-item" data-file="Escalators - VIZCODE.html">Escalators</div>
+                <div class="list-item" data-file="Public Telephones - VIZCODE.html">Public Telephones</div>
+                <div class="list-item" data-file="ATM - VIZCODE.html">ATM</div>
+                <div class="list-item" data-file="Dressing Rooms - VIZCODE.html">Dressing Rooms</div>
+                <div class="list-item" data-file="Ticket _ Information Desks - VIZCODE.html">Ticket / Information Desks</div>
+                <div class="list-item" data-file="Workstation - VIZCODE.html">Workstation</div>
+                <div class="list-item" data-file="Restaurants - VIZCODE.html">Restaurants</div>
+                <div class="list-item" data-file="Transient Lodging Facilities - VIZCODE.html">Transient Lodging Facilities</div>
+                <div class="list-item" data-file="Waiting Room and Rest Areas - VIZCODE.html">Waiting Room and Rest Areas</div>
+                <div class="list-item" data-file="Drinking Water Facilities - VIZCODE.html">Drinking Water Facilities</div>
+                <div class="list-item" data-file="Sensory Rooms - VIZCODE.html">Sensory Rooms</div>
+                <div class="list-item" data-file="Service Animal Provisions - VIZCODE.html">Service Animal Provisions</div>
+
+                <div class="section-header">SAFETY</div>
+                <div class="list-item" data-file="Fencing for Excavations on Roads and Sidewalks - VIZCODE.html">Fencing for Excavations on Roads and Sidewalks</div>
+                <div class="list-item" data-file="Covers for Excavations - VIZCODE.html">Covers for Excavations</div>
+                <div class="list-item" data-file="Areas of Refuge - VIZCODE.html">Areas of Refuge</div>
+                <div class="list-item" data-file="Audio, Visual, Vibrating Fire Alarm Systems - VIZCODE.html">Audio, Visual, Vibrating Fire Alarm Systems</div>
+
+                <div class="section-header">SPECIAL TYPE OF FACILITIES</div>
+                <div class="list-item" data-file="Swimming Pools_ Transfer Walls - VIZCODE.html">Swimming Pools: Transfer Walls</div>
+                <div class="list-item" data-file="Spas - VIZCODE.html">Spas</div>
+                <div class="list-item" data-file="Sports Facilities - VIZCODE.html">Sports Facilities</div>
+                <div class="list-item" data-file="Auditoriums, Arenas, Theaters, and other Assembly - VIZCODE.html">Auditoriums, Arenas, Theaters, and other Assembly</div>
+                <div class="list-item" data-file="Transportation Facilities - VIZCODE.html">Transportation Facilities</div>
+
+            </div>
+        </div>
+
+        <!-- CONTENT AREA (7/8) -->
+        <div class="content-area">
+            <iframe id="content-frame" src=""></iframe>
+            
+            <div id="empty-state" class="empty-state">
+                <div class="text-6xl mb-4">♿</div>
+                <h3 class="text-xl font-semibold text-slate-700 mb-2">Select from the list</h3>
+                <p class="text-sm max-w-xs">Click any item on the left to view the corresponding accessibility requirements and illustrations.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.list-item');
+            const iframe = document.getElementById('content-frame');
+            const emptyState = document.getElementById('empty-state');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remove active from all items
+                    items.forEach(i => i.classList.remove('active'));
+                    
+                    // Highlight clicked item
+                    item.classList.add('active');
+
+                    // Get filename and load it
+                    const fileName = item.getAttribute('data-file');
+                    
+                    // Hide empty state
+                    emptyState.style.display = 'none';
+                    
+                    // Load the local HTML file
+                    iframe.src = `file:///C:/BP%20344%20Accessibility%20Law/${encodeURIComponent(fileName)}`;
+                });
+            });
+
+            console.log('%cBP 344 Accessibility Law - Offline Website Ready', 'color:#00c6d4; font-size:14px; font-weight:600');
+        });
+    </script>
+</body>
+</html>
